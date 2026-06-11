@@ -1,5 +1,5 @@
 [build]
-  publish = "."
+  publish = "bwc_clean"
 
 [[headers]]
   for = "/*"
