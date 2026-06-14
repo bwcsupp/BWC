@@ -5,12 +5,12 @@
   <title>Product Sourcing — BWC BridgewayChina</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    :root{--black:#1a1209;--gold:#c9a84c;--gold-light:#e8c96a;--white:#1a1209;--bg:#faf7f0;--bg2:#f3ede0;--card-bg:#ffffff;--text:#1a1209;--text-light:#5a4e38;--grey:#6b5d45;--glass:rgba(255,255,255,0.85);--glass-border:rgba(201,168,76,0.3);}
+    :root{--black:#0d0e1a;--gold:#c9a84c;--gold-light:#e8c96a;--white:#0d0e1a;--bg:#ffffff;--bg2:#f7f8fc;--card-bg:#ffffff;--text:#0d0e1a;--text-light:#2d2f52;--grey:#6b6e92;--glass:rgba(255,255,255,0.9);--glass-border:rgba(201,168,76,0.2);}
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-    body{background:#faf7f0;color:#1a1209;font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden;}
-    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:#faf7f0;}::-webkit-scrollbar-thumb{background:var(--gold);}
+    body{background:#ffffff;color:#0d0e1a;font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden;}
+    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:#f7f8fc;}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px;}
     nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:28px 60px;transition:all 0.4s;}
-    nav.scrolled{background:rgba(250,247,240,0.96);backdrop-filter:blur(20px);padding:16px 60px;border-bottom:1px solid var(--glass-border);}
+    nav.scrolled{background:rgba(255,255,255,0.97);backdrop-filter:blur(24px);padding:16px 60px;border-bottom:1px solid var(--glass-border);box-shadow:0 2px 20px rgba(0,0,40,0.08);}
     .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
     .nav-logo img{height:40px;width:40px;object-fit:cover;border-radius:50%;border:1px solid var(--gold);}
     .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--gold);letter-spacing:0.12em;}
@@ -24,30 +24,30 @@
     .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,0.95) 0%,rgba(10,10,10,0.4) 100%);}
     .page-hero-content{position:relative;z-index:2;max-width:700px;}
     .eyebrow{font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
-    .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5rem);font-weight:300;line-height:1.1;color:var(--white);}
+    .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5rem);font-weight:300;line-height:1.1;color:#ffffff;}
     .page-title em{font-style:italic;color:var(--gold);}
     .page-sub{margin-top:20px;font-size:0.92rem;color:var(--grey);line-height:1.8;max-width:520px;}
     section{padding:100px 60px;}
     .section-eyebrow{font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
-    .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;color:var(--white);}
+    .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;color:#0d0e1a;}
     .section-title em{font-style:italic;color:var(--gold);}
     .gold-line{width:60px;height:1px;background:var(--gold);margin:24px 0;}
     /* PROCESS */
-    .process-section{background:#070707;}
+    .process-section{background:#0d0e1a;}
     .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:60px;}
     .process-step{padding:40px 36px;border-right:1px solid var(--glass-border);position:relative;}
     .process-step:last-child{border-right:none;}
     .process-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--gold);opacity:0.2;margin-bottom:16px;line-height:1;}
-    .process-step h4{font-size:0.9rem;font-weight:500;color:var(--white);margin-bottom:12px;letter-spacing:0.05em;}
-    .process-step p{font-size:0.78rem;color:var(--grey);line-height:1.8;}
+    .process-step h4{font-size:0.9rem;font-weight:500;color:#ffffff;margin-bottom:12px;letter-spacing:0.05em;}
+    .process-step p{font-size:0.78rem;color:rgba(255,255,255,0.6);line-height:1.8;}
     /* CATEGORIES */
-    .categories-section{background:#faf7f0;}
+    .categories-section{background:#ffffff;}
     .categories-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:50px;}
     .category-card{border:1px solid var(--glass-border);padding:32px 24px;text-align:center;transition:border-color 0.4s,transform 0.4s;cursor:default;}
     .category-card:hover{border-color:var(--gold);transform:translateY(-6px);}
     .category-icon{font-size:2.5rem;margin-bottom:16px;}
-    .category-card h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--white);margin-bottom:8px;}
-    .category-card p{font-size:0.72rem;color:var(--grey);line-height:1.7;}
+    .category-card h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#0d0e1a;margin-bottom:8px;}
+    .category-card p{font-size:0.72rem;color:#6b6e92;line-height:1.7;}
     /* WHY BWC */
     .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:0;}
     .why-visual{position:relative;aspect-ratio:4/3;overflow:hidden;}
@@ -56,13 +56,13 @@
     .why-points{display:flex;flex-direction:column;gap:28px;margin-top:36px;}
     .why-point{display:flex;gap:20px;align-items:flex-start;}
     .why-point-num{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold);opacity:0.5;flex-shrink:0;line-height:1;}
-    .why-point-text h5{font-size:0.85rem;font-weight:500;color:var(--white);margin-bottom:6px;}
-    .why-point-text p{font-size:0.78rem;color:var(--grey);line-height:1.7;}
+    .why-point-text h5{font-size:0.85rem;font-weight:500;color:#0d0e1a;margin-bottom:6px;}
+    .why-point-text p{font-size:0.78rem;color:#6b6e92;line-height:1.7;}
     /* FORM */
-    .sourcing-form-section{background:#070707;}
+    .sourcing-form-section{background:#f7f8fc;}
     .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:50px;align-items:start;}
     .form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
-    .form-group label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--grey);}
+    .form-group label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:#6b6e92;}
     .form-group input,.form-group select,.form-group textarea{background:#ffffff;border:1px solid var(--glass-border);box-shadow:0 2px 16px rgba(201,168,76,0.08);color:var(--white);padding:13px 16px;font-family:'Inter',sans-serif;font-size:0.83rem;font-weight:300;transition:border-color 0.3s;outline:none;resize:none;}
     .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
     .form-group select option{background:#1a1a1a;}
@@ -73,7 +73,7 @@
     .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
     .reveal.visible{opacity:1;transform:translateY(0);}
     .reveal-delay-1{transition-delay:0.1s;}.reveal-delay-2{transition-delay:0.2s;}.reveal-delay-3{transition-delay:0.3s;}.reveal-delay-4{transition-delay:0.4s;}
-    footer{background:#050505;padding:40px 60px 30px;border-top:1px solid var(--glass-border);text-align:center;}
+    footer{background:#0d0e1a;padding:40px 60px 30px;border-top:1px solid var(--glass-border);text-align:center;}
     footer p{font-size:0.75rem;color:var(--grey);}footer a{color:var(--gold);text-decoration:none;}
     @media(max-width:768px){nav{padding:18px 24px;}.nav-links{display:none;}.page-hero{padding:60px 24px;height:55vh;}section{padding:60px 24px;}.process-grid{grid-template-columns:1fr 1fr;}.categories-grid{grid-template-columns:1fr 1fr;}.why-grid{grid-template-columns:1fr;}.form-grid{grid-template-columns:1fr;gap:40px;}.form-row{grid-template-columns:1fr;}footer{padding:30px 24px;}}
   </style>
@@ -86,9 +86,9 @@
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="wellness.html">Wellness</a></li>
+    <li><a href="wellness.html">Luxury Tourism</a></li>
     <li><a href="sourcing.html" class="active">Sourcing</a></li>
-    <li><a href="hainan.html">Hainan Setup</a></li>
+    <li><a href="hainan.html">Company Setup</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
   <a href="index.html" class="nav-back">← Back</a>
@@ -224,6 +224,7 @@
       <div class="form-group"><label>Delivery Country</label><input type="text" id="sCountry" placeholder="Where should we deliver?"></div>
       <div class="form-group"><label>Deadline</label><input type="date" id="sDeadline"></div>
       <div class="form-group"><label>Quality / Packaging Requirements</label><textarea id="sQuality" rows="3" placeholder="Any specific certifications, packaging, labeling, or quality standards?"></textarea></div>
+      <p style="font-size:0.8rem;color:#6b6e92;margin-bottom:20px;">Or email us directly: <a href="mailto:contact@bwcshop.online" style="color:var(--gold);font-weight:500;">contact@bwcshop.online</a></p>
       <button class="btn-full" onclick="submitSourcing()">Submit Sourcing Request →</button>
     </div>
   </div>

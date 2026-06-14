@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VIP Wellness Retreats — BWC BridgewayChina</title>
+  <title>Luxury Tourism — BWC BridgewayChina</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root{--black:#1a1209;--gold:#c9a84c;--gold-light:#e8c96a;--gold-dim:rgba(201,168,76,0.12);--white:#1a1209;--bg:#faf7f0;--bg2:#f3ede0;--card-bg:#ffffff;--text:#1a1209;--text-light:#5a4e38;--grey:#6b5d45;--glass:rgba(255,255,255,0.85);--glass-border:rgba(201,168,76,0.3);}
@@ -14,7 +14,7 @@
 
     /* NAV */
     nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:28px 60px;transition:all 0.4s;}
-    nav.scrolled{background:rgba(250,247,240,0.96);backdrop-filter:blur(20px);padding:16px 60px;border-bottom:1px solid var(--glass-border);}
+    nav.scrolled{background:rgba(255,255,255,0.97);backdrop-filter:blur(24px);padding:16px 60px;border-bottom:1px solid var(--glass-border);box-shadow:0 2px 20px rgba(0,0,40,0.08);}
     .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
     .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--gold);letter-spacing:0.12em;}
     .nav-links{display:flex;gap:36px;list-style:none;}
@@ -35,7 +35,7 @@
     .page-sub{margin-top:20px;font-size:0.92rem;color:var(--grey);line-height:1.9;max-width:560px;}
 
     /* FRIEND SECTION */
-    .friend-section{padding:80px 60px;background:#f3ede0;border-bottom:1px solid var(--glass-border);}
+    .friend-section{padding:80px 60px;background:#f7f8fc;border-bottom:1px solid var(--glass-border);}
     .friend-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:50px;}
     .friend-text p{font-size:0.92rem;color:var(--grey);line-height:2;margin-bottom:20px;}
     .friend-text strong{color:var(--white);}
@@ -47,7 +47,7 @@
     .friend-badge-desc{font-size:0.75rem;color:var(--grey);line-height:1.7;}
 
     /* PACKAGES COMPARISON */
-    .packages-section{padding:100px 60px;background:#faf7f0;}
+    .packages-section{padding:100px 60px;background:#ffffff;}
     .packages-title-wrap{text-align:center;margin-bottom:20px;}
     .section-eyebrow{font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
     .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;line-height:1.15;}
@@ -83,7 +83,7 @@
     .btn-pkg.vip-btn:hover{background:var(--gold-light);}
 
     /* DESTINATIONS */
-    .destinations-section{padding:100px 60px;background:#f3ede0;}
+    .destinations-section{padding:100px 60px;background:#f7f8fc;}
     .dest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px;}
     .dest-card{position:relative;overflow:hidden;cursor:pointer;text-decoration:none;display:block;}
     .dest-card-img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;transition:transform 0.7s;}
@@ -99,7 +99,7 @@
     .dest-card:hover .dest-card-arrow{opacity:1;transform:translateY(0);}
 
     /* TAILORED SECTION */
-    .tailored-section{padding:100px 60px;background:#faf7f0;border-top:1px solid var(--glass-border);}
+    .tailored-section{padding:100px 60px;background:#ffffff;border-top:1px solid var(--glass-border);}
     .tailored-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:60px;}
     .tailored-info h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;margin-bottom:20px;line-height:1.3;}
     .tailored-info h3 em{font-style:italic;color:var(--gold);}
@@ -113,8 +113,8 @@
     .tailored-form h4{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;margin-bottom:8px;}
     .tailored-form p{font-size:0.78rem;color:var(--grey);margin-bottom:28px;line-height:1.7;}
     .form-group{display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
-    .form-group label{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--grey);}
-    .form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);color:var(--white);padding:12px 14px;font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:300;transition:border-color 0.3s;outline:none;resize:none;width:100%;}
+    .form-group label{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#6b6e92;}
+    .form-group input,.form-group select,.form-group textarea{background:#ffffff;border:1.5px solid rgba(201,168,76,0.25);color:#0d0e1a;padding:12px 14px;font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:300;transition:all 0.3s;outline:none;resize:none;width:100%;border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,0.04);}
     .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
     .form-group select option{background:#1a1a1a;color:var(--white);}
     .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
@@ -123,7 +123,7 @@
     .form-success{display:none;background:var(--gold-dim);border:1px solid var(--gold);color:var(--gold);padding:14px 20px;font-size:0.8rem;margin-bottom:20px;text-align:center;}
 
     /* COMPANION SECTION */
-    .companion-section{padding:80px 60px;background:#f3ede0;border-top:1px solid var(--glass-border);}
+    .companion-section{padding:80px 60px;background:#f7f8fc;border-top:1px solid var(--glass-border);}
     .companion-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:50px;}
     .companion-item{padding:36px 28px;border:1px solid var(--glass-border);text-align:center;transition:border-color 0.3s,background 0.3s;}
     .companion-item:hover{border-color:var(--gold);background:var(--gold-dim);}
@@ -173,9 +173,9 @@
   </a>
   <ul class="nav-links">
     <li><a href="index.html#services">Services</a></li>
-    <li><a href="wellness.html" class="active">Wellness</a></li>
+    <li><a href="wellness.html" class="active">Luxury Tourism</a></li>
     <li><a href="sourcing.html">Sourcing</a></li>
-    <li><a href="hainan.html">Hainan Setup</a></li>
+    <li><a href="hainan.html">Company Setup</a></li>
     <li><a href="https://bridgewaychina.myshopify.com/" target="_blank">BWC Store</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
@@ -187,7 +187,7 @@
   <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1800&q=85')"></div>
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content">
-    <p class="eyebrow">BWC — VIP Wellness & Travel</p>
+    <p class="eyebrow">BWC — Luxury Tourism</p>
     <h1 class="page-title">China Through the<br>Eyes of a <em>Friend</em></h1>
     <p class="page-sub">We don't just plan your trip — we personally accompany you. Think of us as trusted friends who know China inside out, ready to make every moment of your journey effortless, immersive, and unforgettable.</p>
   </div>
@@ -252,6 +252,7 @@
         <div class="pkg-feature"><span class="pkg-feature-icon">✦</span><div><span>Bottled Water</span> — provided daily throughout your trip</div></div>
         <div class="pkg-feature"><span class="pkg-feature-icon">✦</span><div><span>Entrance Tickets</span> — to all major attractions on your itinerary</div></div>
         <div class="pkg-feature"><span class="pkg-feature-icon">✦</span><div><span>English & Chinese Companion</span> — present throughout your entire journey</div></div>
+        <div class="pkg-feature"><span class="pkg-feature-icon">✦</span><div><span>Intercity Travel Tickets</span> — standard local train and flight tickets for intercity travel between destinations</div></div>
       </div>
 
       <div class="package-duration">
@@ -446,6 +447,7 @@
         <div class="form-group"><label>Number of Guests</label><input type="number" id="tGuests" placeholder="1–3 (max 3 per trip)" min="1" max="10"></div>
       </div>
       <div class="form-group"><label>Your Interests & Preferences</label><textarea id="tNotes" rows="4" placeholder="Tell us what you'd love to experience — history, food, nature, wellness, culture, photography, adventure…"></textarea></div>
+      <p style="font-size:0.78rem;color:#6b6e92;margin-bottom:16px;">Or reach us at: <a href="mailto:contact@bwcshop.online" style="color:var(--gold);font-weight:500;">contact@bwcshop.online</a></p>
       <button class="btn-full" onclick="submitTailored()">Send My Request →</button>
     </div>
   </div>
