@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hainan Company Setup — BWC BridgewayChina</title>
+  <title>Company Setup in China — BWC BridgewayChina</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    :root{--black:#0a0a0a;--gold:#c9a84c;--gold-light:#e8c96a;--white:#f5f0e8;--grey:rgba(245,240,232,0.5);--glass:rgba(255,255,255,0.04);--glass-border:rgba(201,168,76,0.2);}
+    :root{--black:#0d0e1a;--gold:#c9a84c;--gold-light:#e8c96a;--white:#ffffff;--bg:#ffffff;--bg2:#f7f8fc;--text:#0d0e1a;--text2:#2d2f52;--text3:#6b6e92;--grey:#6b6e92;--card-bg:#ffffff;--glass:rgba(255,255,255,0.9);--glass-border:rgba(201,168,76,0.2);}
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden;}
-    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--gold);}
+    body{background:#ffffff;color:#0d0e1a;font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden;}
+    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:#f7f8fc;}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px;}
     nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:28px 60px;transition:all 0.4s;}
-    nav.scrolled{background:rgba(250,247,240,0.96);backdrop-filter:blur(20px);padding:16px 60px;border-bottom:1px solid var(--glass-border);}
+    nav.scrolled{background:rgba(255,255,255,0.97);backdrop-filter:blur(24px);padding:16px 60px;border-bottom:1px solid var(--glass-border);box-shadow:0 2px 20px rgba(0,0,40,0.08);}
     .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}.nav-logo img{height:40px;width:40px;object-fit:cover;border-radius:50%;border:1px solid var(--gold);}
     .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--gold);letter-spacing:0.12em;}
-    .nav-links{display:flex;gap:36px;list-style:none;}.nav-links a{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--grey);text-decoration:none;transition:color 0.3s;}
+    .nav-links{display:flex;gap:36px;list-style:none;}.nav-links a{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:#2d2f52;text-decoration:none;transition:color 0.3s;}
     .nav-links a:hover,.nav-links a.active{color:var(--gold);}
     .nav-back{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--grey);text-decoration:none;transition:color 0.3s;}
     .nav-back:hover{color:var(--gold);}
@@ -22,62 +22,62 @@
     .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,0.97) 0%,rgba(10,10,10,0.4) 100%);}
     .page-hero-content{position:relative;z-index:2;max-width:700px;}
     .eyebrow{font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
-    .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5rem);font-weight:300;line-height:1.1;}
+    .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5rem);font-weight:300;line-height:1.1;color:#ffffff;}
     .page-title em{font-style:italic;color:var(--gold);}
     .page-sub{margin-top:20px;font-size:0.92rem;color:var(--grey);line-height:1.8;max-width:540px;}
     section{padding:100px 60px;}
     .section-eyebrow{font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
-    .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;}
+    .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;color:#0d0e1a;}
     .section-title em{font-style:italic;color:var(--gold);}
     .gold-line{width:60px;height:1px;background:var(--gold);margin:24px 0;}
     /* BENEFITS BANNER */
-    .benefits-banner{background:var(--bg2);padding:60px;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border);}
+    .benefits-banner{background:#f7f8fc;padding:60px;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border);}
     .benefit-item{text-align:center;}
     .benefit-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--gold);margin-bottom:8px;}
-    .benefit-label{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--grey);}
+    .benefit-label{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#6b6e92;}
     /* PACKAGES */
-    .packages-section{background:var(--bg);}
+    .packages-section{background:#ffffff;}
     .packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;}
     .pkg-card{background:var(--card-bg);border:1px solid var(--glass-border);padding:36px 32px;position:relative;transition:border-color 0.4s,transform 0.4s;backdrop-filter:blur(8px);}
     .pkg-card.featured{border-color:var(--gold);}
     .pkg-card:hover{border-color:var(--gold);transform:translateY(-8px);}
     .pkg-badge{position:absolute;top:20px;right:20px;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;padding:4px 12px;background:var(--gold);color:var(--black);}
     .pkg-zone{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
-    .pkg-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--text);margin-bottom:14px;line-height:1.25;}
-    .pkg-desc{font-size:0.78rem;color:var(--grey);line-height:1.7;margin-bottom:24px;}
+    .pkg-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:#0d0e1a;margin-bottom:14px;line-height:1.25;}
+    .pkg-desc{font-size:0.78rem;color:#6b6e92;line-height:1.7;margin-bottom:24px;}
     .pkg-services{list-style:none;margin-bottom:24px;display:flex;flex-direction:column;gap:8px;}
-    .pkg-services li{font-size:0.74rem;color:var(--grey);display:flex;gap:10px;align-items:flex-start;}
+    .pkg-services li{font-size:0.74rem;color:#2d2f52;display:flex;gap:10px;align-items:flex-start;}
     .pkg-services li::before{content:'✦';color:var(--gold);font-size:0.48rem;flex-shrink:0;margin-top:3px;}
     .pkg-price{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold);margin-bottom:4px;}
-    .pkg-time{font-size:0.7rem;color:var(--grey);margin-bottom:24px;}
+    .pkg-time{font-size:0.7rem;color:#6b6e92;margin-bottom:24px;}
     .btn-ghost{padding:11px 28px;background:transparent;color:var(--gold);font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;border:1px solid var(--gold);cursor:pointer;text-decoration:none;transition:all 0.3s;display:inline-block;font-family:'Inter',sans-serif;}
     .btn-ghost:hover{background:var(--gold);color:var(--black);}
     .btn-gold-sm{padding:11px 28px;background:var(--gold);color:var(--black);font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;transition:all 0.3s;display:inline-block;font-family:'Inter',sans-serif;}
     .btn-gold-sm:hover{background:var(--gold-light);}
     /* COMPARISON */
-    .comparison-section{background:var(--bg2);}
+    .comparison-section{background:#f7f8fc;}
     .comparison-table{width:100%;border-collapse:collapse;margin-top:50px;}
     .comparison-table th{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;padding:16px 20px;text-align:left;border-bottom:1px solid var(--glass-border);}
     .comparison-table th:first-child{color:var(--grey);}
     .comparison-table th:not(:first-child){color:var(--gold);text-align:center;}
-    .comparison-table td{padding:14px 20px;border-bottom:1px solid rgba(201,168,76,0.08);font-size:0.78rem;color:var(--grey);}
+    .comparison-table td{padding:14px 20px;border-bottom:1px solid rgba(201,168,76,0.08);font-size:0.78rem;color:#2d2f52;}
     .comparison-table td:not(:first-child){text-align:center;}
     .comparison-table td.yes{color:var(--gold);}
     .comparison-table td.no{color:rgba(245,240,232,0.2);}
     .comparison-table tr:hover td{background:var(--card-bg);}
     /* PROCESS */
-    .process-section{background:var(--bg);}
+    .process-section{background:#ffffff;}
     .process-timeline{margin-top:60px;display:flex;flex-direction:column;gap:0;}
     .timeline-item{display:grid;grid-template-columns:80px 1fr;gap:40px;padding:40px 0;border-bottom:1px solid var(--glass-border);}
     .timeline-item:last-child{border-bottom:none;}
     .timeline-num{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold);opacity:0.25;line-height:1;}
-    .timeline-content h4{font-size:0.9rem;font-weight:500;color:var(--text);margin-bottom:10px;}
-    .timeline-content p{font-size:0.8rem;color:var(--grey);line-height:1.8;}
+    .timeline-content h4{font-size:0.9rem;font-weight:500;color:#0d0e1a;margin-bottom:10px;}
+    .timeline-content p{font-size:0.8rem;color:#6b6e92;line-height:1.8;}
     /* CONSULT FORM */
-    .consult-section{background:var(--bg2);}
+    .consult-section{background:#f7f8fc;}
     .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:50px;align-items:start;}
     .form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
-    .form-group label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--grey);}
+    .form-group label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:#6b6e92;}
     .form-group input,.form-group select,.form-group textarea{background:var(--card-bg);border:1px solid var(--glass-border);color:var(--text);padding:13px 16px;font-family:'Inter',sans-serif;font-size:0.83rem;font-weight:300;transition:border-color 0.3s;outline:none;resize:none;}
     .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
     .form-group select option{background:#1a1a1a;}
@@ -101,9 +101,9 @@
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="wellness.html">Wellness</a></li>
+    <li><a href="wellness.html">Luxury Tourism</a></li>
     <li><a href="sourcing.html">Sourcing</a></li>
-    <li><a href="hainan.html" class="active">Hainan Setup</a></li>
+    <li><a href="hainan.html" class="active">Company Setup</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
   <a href="index.html" class="nav-back">← Back</a>
@@ -113,8 +113,8 @@
   <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1553864250-05b20249ee0c?w=1800&q=80')"></div>
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content">
-    <p class="eyebrow">Hainan Free Trade Port</p>
-    <h1 class="page-title">Register Your Business<br>in <em>China's Future</em></h1>
+    <p class="eyebrow">China Company Setup · Hainan Free Trade Port</p>
+    <h1 class="page-title">Register Your Company<br>in <em>China's Future</em></h1>
     <p class="page-sub">Hainan's Free Trade Port offers unmatched tax advantages and simplified regulations. BWC handles everything — from company registration to banking, compliance, and visas.</p>
   </div>
 </div>
