@@ -518,23 +518,31 @@
 
   // SUBMIT TAILORED FORM
   async function submitTailored() {
-    const name = document.getElementById('tName').value;
-    const email = document.getElementById('tEmail').value;
-    const phone = document.getElementById('tPhone').value;
+    const name = document.getElementById('tName').value.trim();
+    const email = document.getElementById('tEmail').value.trim();
+    const phone = document.getElementById('tPhone').value.trim();
     const dest = document.getElementById('tDest').value;
     const pkg = document.getElementById('tPackage').value;
     const date = document.getElementById('tDate').value;
     const guests = document.getElementById('tGuests').value;
-    const notes = document.getElementById('tNotes').value;
+    const notes = document.getElementById('tNotes').value.trim();
     if(!name || !email) { alert('Please enter your name and email.'); return; }
+    const btn = document.querySelector('.btn-full'); btn.textContent='Sending…'; btn.disabled=true;
     try {
-      const fd2=new FormData();
-      fd2.append('form-name','wellness-booking');
-      for(const[k,v] of Object.entries(payload)) fd2.append(k,v);
-      await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd2).toString()});
+      await fetch('/.netlify/functions/send-email', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({name, email, phone, service:'VIP Wellness Tourism', message:notes, type:'wellness',
+          extra:{'Destination':dest,'Package':pkg,'Travel Date':date,'Guests':guests}})
+      });
+      const fd=new FormData();
+      fd.append('form-name','wellness-booking');fd.append('client_name',name);fd.append('client_email',email);
+      fd.append('client_phone',phone);fd.append('itinerary_title',dest);fd.append('travel_date',date);
+      fd.append('group_size',guests);fd.append('package_type',pkg);fd.append('special_requests',notes);
+      await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()});
     } catch(e) {}
     document.getElementById('tailoredSuccess').style.display = 'block';
     document.querySelectorAll('.tailored-form input, .tailored-form select, .tailored-form textarea').forEach(el => el.value = '');
+    btn.textContent='Send My Request →'; btn.disabled=false;
   }
 </script>
 <form name="wellness-booking" netlify netlify-honeypot="bot-field" hidden>

@@ -329,17 +329,29 @@ const obs=new IntersectionObserver(e=>e.forEach(en=>{if(en.isIntersecting)en.tar
 document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
 
 async function submitConsult(){
-  const name=document.getElementById('cName').value;
-  const email=document.getElementById('cEmail').value;
+  const name=document.getElementById('cName').value.trim();
+  const email=document.getElementById('cEmail').value.trim();
   if(!name||!email){alert('Please fill in your name and email.');return;}
-  const pkg=document.getElementById('cPackage');
+  const btn=document.querySelector('.btn-full');btn.textContent='Sending…';btn.disabled=true;
   try{
-    const fd4=new FormData();
-      fd4.append('form-name','hainan-consult');
-      for(const[k,v] of Object.entries(payload)) fd4.append(k,v);
-      await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd4).toString()});
+    await fetch('/.netlify/functions/send-email',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name,email,phone:document.getElementById('cPhone').value,service:'Hainan Company Setup',
+        message:document.getElementById('cQuestions').value,type:'hainan',
+        extra:{'Nationality':document.getElementById('cNationality').value,'Package':document.getElementById('cPackage').value,
+               'Industry':document.getElementById('cIndustry').value,'Budget':document.getElementById('cBudget').value,
+               'Preferred Call Time':document.getElementById('cCallTime').value}})
+    });
+    const fd=new FormData();
+    fd.append('form-name','hainan-consult');fd.append('client_name',name);fd.append('client_email',email);
+    fd.append('client_phone',document.getElementById('cPhone').value);
+    fd.append('business_type',document.getElementById('cIndustry').value);
+    fd.append('budget_range',document.getElementById('cBudget').value);
+    fd.append('questions',document.getElementById('cQuestions').value);
+    await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()});
   }catch(e){}
   document.getElementById('consultSuccess').style.display='block';
+  btn.textContent='Book Free Consultation →';btn.disabled=false;
   window.scrollTo({top:document.getElementById('consult').offsetTop-100,behavior:'smooth'});
 }
 </script>
@@ -390,17 +402,18 @@ async function submitConsult(){
 
 <script>
 async function submitQuote() {
-  const name = document.getElementById('qName').value;
-  const email = document.getElementById('qEmail').value;
+  const name = document.getElementById('qName').value.trim();
+  const email = document.getElementById('qEmail').value.trim();
   const industry = document.getElementById('qIndustry').value;
   const budget = document.getElementById('qBudget').value;
-  const details = document.getElementById('qDetails').value;
+  const details = document.getElementById('qDetails').value.trim();
   if(!name || !email) { alert('Please enter your name and email.'); return; }
   try {
-    const fd4=new FormData();
-      fd4.append('form-name','hainan-consult');
-      for(const[k,v] of Object.entries(payload)) fd4.append(k,v);
-      await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd4).toString()});
+    await fetch('/.netlify/functions/send-email',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name,email,service:'Hainan Custom Quote',message:details,type:'hainan',
+        extra:{'Industry':industry,'Budget':budget}})
+    });
   } catch(e) {}
   document.getElementById('quoteSuccess').style.display = 'block';
 }

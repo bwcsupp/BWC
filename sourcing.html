@@ -238,17 +238,41 @@ const obs=new IntersectionObserver(e=>e.forEach(en=>{if(en.isIntersecting)en.tar
 document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
 
 async function submitSourcing(){
-  const name=document.getElementById('sName').value;
-  const email=document.getElementById('sEmail').value;
-  const desc=document.getElementById('sDesc').value;
+  const name=document.getElementById('sName').value.trim();
+  const email=document.getElementById('sEmail').value.trim();
+  const desc=document.getElementById('sDesc').value.trim();
   if(!name||!email||!desc){alert('Please fill in name, email, and product description.');return;}
+  const btn=document.querySelector('.btn-full');btn.textContent='Sending…';btn.disabled=true;
   try{
-    const fd3=new FormData();
-      fd3.append('form-name','sourcing-request');
-      for(const[k,v] of Object.entries(payload)) fd3.append(k,v);
-      await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd3).toString()});
+    await fetch('/.netlify/functions/send-email',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        name,email,
+        phone:document.getElementById('sPhone').value,
+        service:'Product Sourcing',
+        message:desc,
+        type:'sourcing',
+        extra:{
+          'Company':document.getElementById('sCompany').value,
+          'Category':document.getElementById('sCategory').value,
+          'Quantity':document.getElementById('sQty').value,
+          'Target Price':document.getElementById('sPrice').value,
+          'Delivery Country':document.getElementById('sCountry').value,
+          'Deadline':document.getElementById('sDeadline').value,
+          'Quality Notes':document.getElementById('sQuality').value
+        }
+      })
+    });
+    // also submit netlify form
+    const fd=new FormData();
+    fd.append('form-name','sourcing-request');fd.append('client_name',name);fd.append('client_email',email);
+    fd.append('client_phone',document.getElementById('sPhone').value);fd.append('product_description',desc);
+    fd.append('quantity',document.getElementById('sQty').value);fd.append('target_unit_price',document.getElementById('sPrice').value);
+    fd.append('destination_country',document.getElementById('sCountry').value);
+    await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()});
   }catch(e){}
   document.getElementById('sourcingSuccess').style.display='block';
+  btn.textContent='Submit Sourcing Request →';btn.disabled=false;
   window.scrollTo({top:document.getElementById('request').offsetTop-100,behavior:'smooth'});
 }
 </script>
