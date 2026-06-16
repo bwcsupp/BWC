@@ -1,415 +1,494 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Company Setup in China — BWC BridgewayChina</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root{--black:#0d0e1a;--gold:#c9a84c;--gold-light:#e8c96a;--white:#ffffff;--bg:#ffffff;--bg2:#f7f8fc;--text:#0d0e1a;--text2:#2d2f52;--text3:#6b6e92;--grey:#6b6e92;--card-bg:#ffffff;--glass:rgba(255,255,255,0.9);--glass-border:rgba(201,168,76,0.2);}
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-    body{background:#ffffff;color:#0d0e1a;font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden;}
-    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:#f7f8fc;}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px;}
-    nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:28px 60px;transition:all 0.4s;}
-    nav.scrolled{background:rgba(255,255,255,0.97);backdrop-filter:blur(24px);padding:16px 60px;border-bottom:1px solid var(--glass-border);box-shadow:0 2px 20px rgba(0,0,40,0.08);}
-    .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}.nav-logo img{height:40px;width:40px;object-fit:cover;border-radius:50%;border:1px solid var(--gold);}
-    .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--gold);letter-spacing:0.12em;}
-    .nav-links{display:flex;gap:36px;list-style:none;}.nav-links a{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:#2d2f52;text-decoration:none;transition:color 0.3s;}
-    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
-    .nav-back{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--grey);text-decoration:none;transition:color 0.3s;}
-    .nav-back:hover{color:var(--gold);}
-    .page-hero{position:relative;height:70vh;display:flex;align-items:flex-end;padding:80px 60px;overflow:hidden;}
-    .page-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
-    .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,0.97) 0%,rgba(10,10,10,0.4) 100%);}
-    .page-hero-content{position:relative;z-index:2;max-width:700px;}
-    .eyebrow{font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
-    .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5rem);font-weight:300;line-height:1.1;color:#ffffff;}
-    .page-title em{font-style:italic;color:var(--gold);}
-    .page-sub{margin-top:20px;font-size:0.92rem;color:var(--grey);line-height:1.8;max-width:540px;}
-    section{padding:100px 60px;}
-    .section-eyebrow{font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
-    .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;color:#0d0e1a;}
-    .section-title em{font-style:italic;color:var(--gold);}
-    .gold-line{width:60px;height:1px;background:var(--gold);margin:24px 0;}
-    /* BENEFITS BANNER */
-    .benefits-banner{background:#f7f8fc;padding:60px;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border);}
-    .benefit-item{text-align:center;}
-    .benefit-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--gold);margin-bottom:8px;}
-    .benefit-label{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#6b6e92;}
-    /* PACKAGES */
-    .packages-section{background:#ffffff;}
-    .packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;}
-    .pkg-card{background:var(--card-bg);border:1px solid var(--glass-border);padding:36px 32px;position:relative;transition:border-color 0.4s,transform 0.4s;backdrop-filter:blur(8px);}
-    .pkg-card.featured{border-color:var(--gold);}
-    .pkg-card:hover{border-color:var(--gold);transform:translateY(-8px);}
-    .pkg-badge{position:absolute;top:20px;right:20px;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;padding:4px 12px;background:var(--gold);color:var(--black);}
-    .pkg-zone{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
-    .pkg-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:#0d0e1a;margin-bottom:14px;line-height:1.25;}
-    .pkg-desc{font-size:0.78rem;color:#6b6e92;line-height:1.7;margin-bottom:24px;}
-    .pkg-services{list-style:none;margin-bottom:24px;display:flex;flex-direction:column;gap:8px;}
-    .pkg-services li{font-size:0.74rem;color:#2d2f52;display:flex;gap:10px;align-items:flex-start;}
-    .pkg-services li::before{content:'✦';color:var(--gold);font-size:0.48rem;flex-shrink:0;margin-top:3px;}
-    .pkg-price{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold);margin-bottom:4px;}
-    .pkg-time{font-size:0.7rem;color:#6b6e92;margin-bottom:24px;}
-    .btn-ghost{padding:11px 28px;background:transparent;color:var(--gold);font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;border:1px solid var(--gold);cursor:pointer;text-decoration:none;transition:all 0.3s;display:inline-block;font-family:'Inter',sans-serif;}
-    .btn-ghost:hover{background:var(--gold);color:var(--black);}
-    .btn-gold-sm{padding:11px 28px;background:var(--gold);color:var(--black);font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;transition:all 0.3s;display:inline-block;font-family:'Inter',sans-serif;}
-    .btn-gold-sm:hover{background:var(--gold-light);}
-    /* COMPARISON */
-    .comparison-section{background:#f7f8fc;}
-    .comparison-table{width:100%;border-collapse:collapse;margin-top:50px;}
-    .comparison-table th{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;padding:16px 20px;text-align:left;border-bottom:1px solid var(--glass-border);}
-    .comparison-table th:first-child{color:var(--grey);}
-    .comparison-table th:not(:first-child){color:var(--gold);text-align:center;}
-    .comparison-table td{padding:14px 20px;border-bottom:1px solid rgba(201,168,76,0.08);font-size:0.78rem;color:#2d2f52;}
-    .comparison-table td:not(:first-child){text-align:center;}
-    .comparison-table td.yes{color:var(--gold);}
-    .comparison-table td.no{color:rgba(245,240,232,0.2);}
-    .comparison-table tr:hover td{background:var(--card-bg);}
-    /* PROCESS */
-    .process-section{background:#ffffff;}
-    .process-timeline{margin-top:60px;display:flex;flex-direction:column;gap:0;}
-    .timeline-item{display:grid;grid-template-columns:80px 1fr;gap:40px;padding:40px 0;border-bottom:1px solid var(--glass-border);}
-    .timeline-item:last-child{border-bottom:none;}
-    .timeline-num{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold);opacity:0.25;line-height:1;}
-    .timeline-content h4{font-size:0.9rem;font-weight:500;color:#0d0e1a;margin-bottom:10px;}
-    .timeline-content p{font-size:0.8rem;color:#6b6e92;line-height:1.8;}
-    /* CONSULT FORM */
-    .consult-section{background:#f7f8fc;}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:50px;align-items:start;}
-    .form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
-    .form-group label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:#6b6e92;}
-    .form-group input,.form-group select,.form-group textarea{background:var(--card-bg);border:1px solid var(--glass-border);color:var(--text);padding:13px 16px;font-family:'Inter',sans-serif;font-size:0.83rem;font-weight:300;transition:border-color 0.3s;outline:none;resize:none;}
-    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
-    .form-group select option{background:#1a1a1a;}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-    .btn-full{width:100%;padding:15px;background:var(--gold);color:var(--black);border:none;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;font-family:'Inter',sans-serif;}
-    .btn-full:hover{background:var(--gold-light);}
-    .form-success{display:none;padding:20px;border:1px solid var(--gold);text-align:center;color:var(--gold);font-size:0.85rem;margin-bottom:20px;}
-    .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
-    .reveal.visible{opacity:1;transform:translateY(0);}
-    .reveal-delay-1{transition-delay:0.1s;}.reveal-delay-2{transition-delay:0.2s;}.reveal-delay-3{transition-delay:0.3s;}.reveal-delay-4{transition-delay:0.4s;}
-    footer{background:#0d0e1a;padding:40px 60px 30px;border-top:1px solid var(--glass-border);text-align:center;}
-    footer p{font-size:0.75rem;color:var(--grey);}footer a{color:var(--gold);text-decoration:none;}
-    @media(max-width:768px){nav{padding:18px 24px;}.nav-links{display:none;}.page-hero{padding:60px 24px;height:55vh;}section{padding:60px 24px;}.benefits-banner{grid-template-columns:1fr 1fr;padding:40px 24px;}.packages-grid{grid-template-columns:1fr;}.comparison-table{font-size:0.7rem;}.form-grid{grid-template-columns:1fr;gap:40px;}.form-row{grid-template-columns:1fr;}.timeline-item{grid-template-columns:50px 1fr;gap:20px;}footer{padding:30px 24px;}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Company Setup in China — BWC BridgewayChina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gold:#c9a84c;--gold2:#a07828;--gold-light:#f0c84a;--gold-glow:rgba(201,168,76,0.14);
+  --bg:#ffffff;--bg2:#f8f9ff;--bg3:#eef0fa;
+  --text:#0a0b14;--text2:#1e2035;--text3:#6b6e92;
+  --card:#ffffff;--sh:0 2px 20px rgba(0,0,40,0.06);--shh:0 8px 40px rgba(0,0,40,0.12);
+  --border:rgba(201,168,76,0.2);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .35s ease;}
+nav.scrolled{background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:12px 40px;box-shadow:var(--sh);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--gold);letter-spacing:.04em;text-decoration:none;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{font-size:.85rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text2);text-decoration:none;position:relative;transition:color .25s;}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:1.5px;background:var(--gold);transition:width .3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff !important;padding:9px 22px;border-radius:50px;font-size:.82rem;font-weight:600;letter-spacing:.05em;text-decoration:none;transition:all .3s;}
+.nav-cta:hover{box-shadow:0 4px 20px rgba(201,168,76,0.4);transform:translateY(-1px);}
+.hero{min-height:75vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;background:var(--bg);}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(201,168,76,0.12) 1px,transparent 1px);background-size:36px 36px;pointer-events:none;}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;}
+.hero-orb1{width:500px;height:500px;background:radial-gradient(circle,rgba(201,168,76,0.1),transparent 70%);top:-100px;right:-150px;}
+.hero-orb2{width:400px;height:400px;background:radial-gradient(circle,rgba(80,100,255,0.06),transparent 70%);bottom:-80px;left:-100px;}
+.hero-content{position:relative;z-index:2;max-width:760px;padding:0 24px;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:50px;padding:6px 18px;font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;background:rgba(201,168,76,0.05);}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.3);}}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:300;line-height:1.1;color:var(--text);margin-bottom:20px;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero p{font-size:1.05rem;color:var(--text3);line-height:1.8;max-width:560px;margin:0 auto 36px;}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;padding:14px 32px;border-radius:50px;font-size:.9rem;font-weight:600;letter-spacing:.04em;text-decoration:none;border:none;cursor:pointer;transition:all .3s;}
+.btn-primary:hover{box-shadow:0 6px 30px rgba(201,168,76,0.45);transform:translateY(-2px);}
+.btn-secondary{background:transparent;color:var(--text2);padding:14px 32px;border-radius:50px;font-size:.9rem;font-weight:500;letter-spacing:.04em;text-decoration:none;border:1.5px solid var(--border);cursor:pointer;transition:all .3s;}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold);}
+section{padding:90px 40px;}
+.section-label{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+h2.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:400;color:var(--text);line-height:1.15;margin-bottom:16px;}
+p.section-sub{font-size:1rem;color:var(--text3);line-height:1.8;max-width:580px;}
+.container{max-width:1140px;margin:0 auto;}
+
+/* ENTITY TYPES */
+.entities-section{background:var(--bg2);}
+.entities-header{text-align:center;margin-bottom:60px;}
+.entities-header p.section-sub{margin:0 auto;}
+.entities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.entity-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:40px 32px;position:relative;overflow:hidden;transition:all .35s;}
+.entity-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--gold-glow),transparent);opacity:0;transition:opacity .3s;}
+.entity-card:hover{box-shadow:var(--shh);border-color:var(--gold);transform:translateY(-5px);}
+.entity-card:hover::before{opacity:1;}
+.entity-card.featured{border-color:var(--gold);background:linear-gradient(135deg,rgba(201,168,76,0.04),var(--card));}
+.entity-badge{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold2);background:rgba(201,168,76,0.12);border-radius:50px;padding:4px 12px;margin-bottom:20px;}
+.entity-card h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500;color:var(--text);margin-bottom:8px;}
+.entity-subtitle{font-size:.82rem;color:var(--text3);margin-bottom:20px;}
+.entity-features{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.entity-features li{display:flex;gap:10px;align-items:center;font-size:.87rem;color:var(--text2);}
+.entity-features li::before{content:'→';color:var(--gold);font-size:.8rem;min-width:14px;}
+
+/* REGIONS */
+.regions-section{background:var(--text);color:#fff;}
+.regions-section .section-label{color:var(--gold-light);}
+.regions-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;flex-wrap:wrap;gap:20px;}
+.regions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.region-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px 26px;transition:all .3s;position:relative;overflow:hidden;}
+.region-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,0.07),transparent);opacity:0;transition:opacity .3s;}
+.region-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-4px);}
+.region-card:hover::before{opacity:1;}
+.region-flag{font-size:2rem;margin-bottom:14px;}
+.region-card h3{font-size:1rem;font-weight:600;color:#fff;margin-bottom:8px;}
+.region-card p{font-size:.84rem;color:rgba(255,255,255,0.5);line-height:1.7;}
+.region-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+.region-tag{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-light);background:rgba(201,168,76,0.1);border-radius:50px;padding:3px 10px;}
+
+/* PROCESS */
+.process-section{background:var(--bg);}
+.process-header{text-align:center;margin-bottom:60px;}
+.timeline{position:relative;display:flex;flex-direction:column;gap:0;}
+.timeline::before{content:'';position:absolute;left:40px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),var(--gold-glow));opacity:.3;}
+.timeline-item{display:grid;grid-template-columns:80px 1fr;gap:30px;align-items:start;padding:30px 0;}
+.timeline-num{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:#fff;position:relative;z-index:1;}
+.timeline-body{padding-top:10px;}
+.timeline-body h3{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:8px;}
+.timeline-body p{font-size:.88rem;color:var(--text3);line-height:1.7;}
+.timeline-duration{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--gold2);background:rgba(201,168,76,0.1);border-radius:50px;padding:3px 10px;margin-top:8px;}
+
+/* REQUIREMENTS */
+.req-section{background:var(--bg2);}
+.req-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.req-list{display:flex;flex-direction:column;gap:16px;}
+.req-item{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;}
+.req-icon{font-size:1.4rem;min-width:32px;}
+.req-item h4{font-size:.92rem;font-weight:600;color:var(--text);margin-bottom:4px;}
+.req-item p{font-size:.83rem;color:var(--text3);line-height:1.6;}
+
+/* FORM */
+.form-section{background:var(--bg);}
+.form-inner{display:grid;grid-template-columns:1fr 1.5fr;gap:70px;align-items:start;}
+.form-info h2{margin-bottom:20px;}
+.form-info p{color:var(--text3);line-height:1.8;margin-bottom:30px;}
+.form-contact-box{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:28px;}
+.form-contact-box p{font-size:.85rem;color:var(--text3);margin-bottom:6px;}
+.form-contact-box a{color:var(--gold);font-weight:600;text-decoration:none;font-size:.95rem;}
+.form-box{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:44px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{margin-bottom:20px;}
+.form-group label{display:block;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 16px;border-radius:10px;border:1.5px solid rgba(201,168,76,0.25);background:#ffffff;color:var(--text);font-family:'Inter',sans-serif;font-size:.92rem;outline:none;transition:border-color .25s;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
+.form-group textarea{resize:vertical;min-height:110px;}
+.form-group select option{background:#fff;color:var(--text);}
+.form-submit{width:100%;padding:15px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;border-radius:50px;font-size:.95rem;font-weight:600;letter-spacing:.04em;cursor:pointer;transition:all .3s;}
+.form-submit:hover{box-shadow:0 6px 30px rgba(201,168,76,0.45);transform:translateY(-2px);}
+.form-success{display:none;margin-top:16px;padding:16px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:10px;color:#16a34a;font-size:.9rem;text-align:center;}
+
+footer{background:var(--text);color:rgba(255,255,255,0.5);text-align:center;padding:40px 24px;}
+footer .footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--gold);display:block;margin-bottom:12px;}
+footer p{font-size:.82rem;line-height:1.8;}
+footer a{color:var(--gold);text-decoration:none;}
+.float-btns{position:fixed;bottom:28px;right:28px;display:flex;flex-direction:column;gap:10px;z-index:99;}
+.float-btn{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,0.15);transition:all .3s;border:none;cursor:pointer;}
+.float-btn:hover{transform:translateY(-3px);}
+.float-wechat{background:#07c160;color:#fff;}
+.float-top{background:var(--gold);color:#fff;font-size:.9rem;}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+@media(max-width:900px){
+  nav{padding:16px 20px;}nav.scrolled{padding:10px 20px;}
+  .nav-links{display:none;}
+  .entities-grid{grid-template-columns:1fr;}
+  .regions-grid{grid-template-columns:1fr 1fr;}
+  .req-inner{grid-template-columns:1fr;}
+  .form-inner{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .timeline::before{left:27px;}
+  .timeline-item{grid-template-columns:54px 1fr;gap:16px;}
+  section{padding:60px 20px;}
+}
+@media(max-width:500px){
+  .regions-grid{grid-template-columns:1fr;}
+  .form-box{padding:28px 20px;}
+}
+</style>
 </head>
 <body>
-<nav id="navbar">
-  <a href="index.html" class="nav-logo">
-    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400&q=80" alt="BWC">
-    <span class="nav-logo-text">BWC</span>
-  </a>
+
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">BWC</a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
     <li><a href="wellness.html">Luxury Tourism</a></li>
     <li><a href="sourcing.html">Sourcing</a></li>
     <li><a href="hainan.html" class="active">Company Setup</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Get Started</a></li>
   </ul>
-  <a href="index.html" class="nav-back">← Back</a>
 </nav>
 
-<div class="page-hero">
-  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1553864250-05b20249ee0c?w=1800&q=80')"></div>
-  <div class="page-hero-overlay"></div>
-  <div class="page-hero-content">
-    <p class="eyebrow">China Company Setup · Hainan Free Trade Port</p>
-    <h1 class="page-title">Register Your Company<br>in <em>China's Future</em></h1>
-    <p class="page-sub">Hainan's Free Trade Port offers unmatched tax advantages and simplified regulations. BWC handles everything — from company registration to banking, compliance, and visas.</p>
+<section class="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-orb hero-orb1"></div>
+  <div class="hero-orb hero-orb2"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Company Setup</div>
+    <h1>Establish Your<br><em>China Presence</em></h1>
+    <p>We guide you through the entire process of registering and operating a business entity in China — from entity selection to bank account opening and compliance.</p>
+    <div class="hero-btns">
+      <a href="#consult" class="btn-primary">Book a Consultation</a>
+      <a href="#process" class="btn-secondary">View Process</a>
+    </div>
   </div>
+</section>
+
+<section class="entities-section">
+  <div class="container">
+    <div class="entities-header reveal">
+      <span class="section-label">Entity Types</span>
+      <h2 class="section-title">Choose the Right<br>Business Structure</h2>
+      <p class="section-sub">We help you select the entity type that best fits your business model, ownership requirements, and operational goals.</p>
+    </div>
+    <div class="entities-grid">
+      <div class="entity-card reveal">
+        <div class="entity-badge">Most Popular</div>
+        <h3>WFOE</h3>
+        <div class="entity-subtitle">Wholly Foreign-Owned Enterprise</div>
+        <ul class="entity-features">
+          <li>100% foreign ownership</li>
+          <li>Full profit repatriation</li>
+          <li>Hire local staff directly</li>
+          <li>Issue VAT invoices (Fapiao)</li>
+          <li>Suitable for manufacturing & services</li>
+        </ul>
+      </div>
+      <div class="entity-card featured reveal">
+        <div class="entity-badge">Recommended for Trade</div>
+        <h3>Trading WFOE</h3>
+        <div class="entity-subtitle">Import / Export License Included</div>
+        <ul class="entity-features">
+          <li>Import & export rights built-in</li>
+          <li>Direct supplier payments in RMB</li>
+          <li>Customs registration included</li>
+          <li>Access to bonded zones</li>
+          <li>Ideal for sourcing businesses</li>
+        </ul>
+      </div>
+      <div class="entity-card reveal">
+        <div class="entity-badge">Low Cost Entry</div>
+        <h3>Representative Office</h3>
+        <div class="entity-subtitle">Non-Commercial Presence</div>
+        <ul class="entity-features">
+          <li>No RMB revenue allowed</li>
+          <li>Market research & liaison</li>
+          <li>Low setup cost & maintenance</li>
+          <li>Quick to establish</li>
+          <li>Good for exploratory phase</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="regions-section">
+  <div class="container">
+    <div class="regions-header">
+      <div>
+        <span class="section-label">Strategic Locations</span>
+        <h2 class="section-title" style="color:#fff;">Key Business<br>Regions</h2>
+      </div>
+      <p class="section-sub" style="color:rgba(255,255,255,0.5);max-width:340px;">We operate across China's major economic zones, free trade zones, and business hubs.</p>
+    </div>
+    <div class="regions-grid">
+      <div class="region-card reveal">
+        <div class="region-flag">🏙️</div>
+        <h3>Shanghai</h3>
+        <p>China's financial and trade capital. Home to the largest free trade zone and a hub for multinational operations.</p>
+        <div class="region-tags"><span class="region-tag">Finance</span><span class="region-tag">Trade</span><span class="region-tag">FTZ</span></div>
+      </div>
+      <div class="region-card reveal">
+        <div class="region-flag">🌆</div>
+        <h3>Shenzhen</h3>
+        <p>China's tech and innovation capital. Adjacent to Hong Kong, ideal for electronics and cross-border e-commerce.</p>
+        <div class="region-tags"><span class="region-tag">Tech</span><span class="region-tag">E-Commerce</span><span class="region-tag">Manufacturing</span></div>
+      </div>
+      <div class="region-card reveal">
+        <div class="region-flag">🏭</div>
+        <h3>Guangzhou</h3>
+        <p>The heart of China's trading economy. Gateway to the Pearl River Delta manufacturing belt.</p>
+        <div class="region-tags"><span class="region-tag">Wholesale</span><span class="region-tag">Fashion</span><span class="region-tag">Sourcing</span></div>
+      </div>
+      <div class="region-card reveal">
+        <div class="region-flag">🌴</div>
+        <h3>Hainan FTP</h3>
+        <p>China's newest and most ambitious free trade port. Zero tariff, low tax rates, and special policies for foreign business.</p>
+        <div class="region-tags"><span class="region-tag">Zero Tariff</span><span class="region-tag">Low Tax</span><span class="region-tag">FTP</span></div>
+      </div>
+      <div class="region-card reveal">
+        <div class="region-flag">🏛️</div>
+        <h3>Beijing</h3>
+        <p>China's political and regulatory hub. Essential for government relations, legal services, and media companies.</p>
+        <div class="region-tags"><span class="region-tag">Government</span><span class="region-tag">Media</span><span class="region-tag">Legal</span></div>
+      </div>
+      <div class="region-card reveal">
+        <div class="region-flag">⚓</div>
+        <h3>Tianjin</h3>
+        <p>Major northern port and logistics hub. Strong in heavy industry, automotive, and bonded warehouse operations.</p>
+        <div class="region-tags"><span class="region-tag">Logistics</span><span class="region-tag">Port</span><span class="region-tag">Industry</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-section" id="process">
+  <div class="container">
+    <div class="process-header reveal">
+      <span class="section-label">Setup Timeline</span>
+      <h2 class="section-title">From Decision to<br>Ready to Operate</h2>
+      <p class="section-sub" style="margin:0 auto;">Our typical WFOE setup takes 6–10 weeks. Here is what to expect at each stage.</p>
+    </div>
+    <div style="max-width:700px;margin:0 auto;">
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-num">1</div>
+          <div class="timeline-body">
+            <h3>Initial Consultation & Planning</h3>
+            <p>We assess your business model, recommend the right entity type and location, and outline the full cost and timeline.</p>
+            <span class="timeline-duration">Week 1</span>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-num">2</div>
+          <div class="timeline-body">
+            <h3>Document Preparation</h3>
+            <p>We help prepare all required documents including notarized corporate docs, business plans, and articles of association.</p>
+            <span class="timeline-duration">Weeks 1–2</span>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-num">3</div>
+          <div class="timeline-body">
+            <h3>Name Approval & Registration</h3>
+            <p>Company name pre-approval at the local Administration for Market Regulation (AMR), followed by full registration filing.</p>
+            <span class="timeline-duration">Weeks 2–4</span>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-num">4</div>
+          <div class="timeline-body">
+            <h3>Business License Issuance</h3>
+            <p>Official business license is granted. We coordinate the registered address, legal representative, and scope of business.</p>
+            <span class="timeline-duration">Weeks 4–6</span>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-num">5</div>
+          <div class="timeline-body">
+            <h3>Bank Account & Tax Registration</h3>
+            <p>Corporate bank account opened (RMB + foreign currency), tax registration, and optional VAT general taxpayer status.</p>
+            <span class="timeline-duration">Weeks 6–10</span>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-num">6</div>
+          <div class="timeline-body">
+            <h3>Ready to Operate</h3>
+            <p>Your company is fully operational. We offer ongoing compliance, accounting, and HR support if needed.</p>
+            <span class="timeline-duration">From Week 10</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="req-section">
+  <div class="container">
+    <div class="req-inner">
+      <div class="reveal">
+        <span class="section-label">Requirements</span>
+        <h2 class="section-title">What You'll<br>Need to Provide</h2>
+        <p class="section-sub" style="margin-top:16px;">We handle the complexity. You just need to provide these standard documents — we'll guide you on format and notarization requirements.</p>
+      </div>
+      <div class="req-list reveal">
+        <div class="req-item">
+          <div class="req-icon">🪪</div>
+          <div><h4>Passport Copy</h4><p>Valid passport for all shareholders and the legal representative. Notarized and apostilled if required.</p></div>
+        </div>
+        <div class="req-item">
+          <div class="req-icon">🏢</div>
+          <div><h4>Parent Company Documents</h4><p>Certificate of incorporation, articles of association, and board resolution for corporate shareholders.</p></div>
+        </div>
+        <div class="req-item">
+          <div class="req-icon">📄</div>
+          <div><h4>Business Plan</h4><p>Brief description of intended operations, products or services, and expected revenue scope in China.</p></div>
+        </div>
+        <div class="req-item">
+          <div class="req-icon">📍</div>
+          <div><h4>Registered Address</h4><p>A physical office address in China. We can provide a registered address if you don't have one yet.</p></div>
+        </div>
+        <div class="req-item">
+          <div class="req-icon">💰</div>
+          <div><h4>Registered Capital</h4><p>Minimum registered capital varies by entity type and location. We advise on the optimal amount for your situation.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="consult">
+  <div class="container">
+    <div class="form-inner">
+      <div class="form-info reveal">
+        <span class="section-label">Book a Consultation</span>
+        <h2 class="section-title">Start Your<br>China Journey</h2>
+        <p>Tell us about your business and goals. Our team will contact you within 24 hours with a tailored setup plan and cost estimate.</p>
+        <div class="form-contact-box">
+          <p>Prefer to email directly?</p>
+          <a href="mailto:contact@bwcshop.online">contact@bwcshop.online</a>
+        </div>
+      </div>
+      <div class="form-box reveal">
+        <div class="form-row">
+          <div class="form-group"><label>Full Name</label><input type="text" id="cName" placeholder="Your name"></div>
+          <div class="form-group"><label>Email Address</label><input type="email" id="cEmail" placeholder="your@email.com"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Nationality</label><input type="text" id="cNationality" placeholder="Your country"></div>
+          <div class="form-group">
+            <label>Preferred Entity</label>
+            <select id="cEntity">
+              <option value="">Not sure yet</option>
+              <option>WFOE</option>
+              <option>Trading WFOE</option>
+              <option>Representative Office</option>
+              <option>Joint Venture</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Preferred Location</label>
+            <select id="cLocation">
+              <option value="">Not sure yet</option>
+              <option>Shanghai</option>
+              <option>Shenzhen</option>
+              <option>Guangzhou</option>
+              <option>Hainan FTP</option>
+              <option>Beijing</option>
+              <option>Tianjin</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Industry / Sector</label>
+            <input type="text" id="cIndustry" placeholder="e.g. Trading, Tech, F&B">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Business Description</label>
+          <textarea id="cDesc" placeholder="Briefly describe your business model, what you plan to do in China, and any specific questions you have..."></textarea>
+        </div>
+        <button class="form-submit" onclick="submitConsult()">Request Consultation →</button>
+        <div class="form-success" id="cSuccess">✓ Request received! Our team will be in touch within 24 hours.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">BWC BridgewayChina</span>
+  <p>Company Setup · Product Sourcing · Luxury Tourism</p>
+  <p style="margin-top:8px;"><a href="mailto:contact@bwcshop.online">contact@bwcshop.online</a></p>
+  <p style="margin-top:16px;font-size:.75rem;opacity:.5;">© 2025 BWC BridgewayChina. All rights reserved.</p>
+</footer>
+
+<div class="float-btns">
+  <a href="https://wa.me/" class="float-btn float-wechat" title="WhatsApp">💬</a>
+  <button class="float-btn float-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 </div>
 
-<!-- BENEFITS BANNER -->
-<div class="benefits-banner">
-  <div class="benefit-item reveal"><div class="benefit-num">0%</div><div class="benefit-label">Corporate Tax for Qualifying Industries</div></div>
-  <div class="benefit-item reveal reveal-delay-1"><div class="benefit-num">15%</div><div class="benefit-label">Personal Income Tax Cap</div></div>
-  <div class="benefit-item reveal reveal-delay-2"><div class="benefit-num">2wk</div><div class="benefit-label">Fastest Company Setup</div></div>
-  <div class="benefit-item reveal reveal-delay-3"><div class="benefit-num">0</div><div class="benefit-label">Minimum Capital Required</div></div>
-</div>
-
-<!-- PACKAGES -->
-<section class="packages-section" id="packages">
-  <div class="reveal"><p class="section-eyebrow">Our Packages</p></div>
-  <div class="reveal reveal-delay-1"><h2 class="section-title">Choose Your <em>Setup Package</em></h2></div>
-  <div class="packages-grid">
-    <div class="pkg-card reveal">
-      <p class="pkg-zone">Hainan Free Trade Port</p>
-      <h3 class="pkg-name">Starter FTZ Company</h3>
-      <p class="pkg-desc">Perfect entry-level package for entrepreneurs and SMEs looking to establish a legal business presence in the Hainan Free Trade Port.</p>
-      <ul class="pkg-services">
-        <li>Company name reservation & approval</li>
-        <li>Business license registration</li>
-        <li>Registered address (1 year)</li>
-        <li>Company seal & chops</li>
-        <li>Bank account introduction</li>
-        <li>Tax registration</li>
-      </ul>
-      <div class="pkg-price">$1,800</div>
-      <div class="pkg-time">⏱ Setup in ~4 weeks</div>
-      <a href="#consult" class="btn-ghost">Get Started</a>
-    </div>
-    <div class="pkg-card featured reveal reveal-delay-1">
-      <span class="pkg-badge">Most Popular</span>
-      <p class="pkg-zone">Hainan Free Trade Port</p>
-      <h3 class="pkg-name">Professional Business Package</h3>
-      <p class="pkg-desc">For growing businesses needing complete, professionally managed company setup with ongoing compliance support and HR assistance.</p>
-      <ul class="pkg-services">
-        <li>Full company registration</li>
-        <li>Premium registered address (1 year)</li>
-        <li>Dedicated account manager</li>
-        <li>6 months accounting & bookkeeping</li>
-        <li>Work permit & visa assistance (1 person)</li>
-        <li>Annual compliance filing (Year 1)</li>
-      </ul>
-      <div class="pkg-price">$4,500</div>
-      <div class="pkg-time">⏱ Setup in ~3 weeks</div>
-      <a href="#consult" class="btn-gold-sm">Get Started</a>
-    </div>
-    <div class="pkg-card reveal reveal-delay-2">
-      <p class="pkg-zone">Hainan Free Trade Port</p>
-      <h3 class="pkg-name">Elite Investment & Trading</h3>
-      <p class="pkg-desc">Premium solution for serious investors and multinationals. Full legal counsel, strategic advisory, and two years of compliance management.</p>
-      <ul class="pkg-services">
-        <li>Expedited company registration</li>
-        <li>Dedicated legal counsel</li>
-        <li>1 full year accounting & tax filing</li>
-        <li>Import/export license application</li>
-        <li>Trademark registration (China)</li>
-        <li>Banking with premium institutions</li>
-      </ul>
-      <div class="pkg-price">$8,800</div>
-      <div class="pkg-time">⏱ Setup in ~2 weeks</div>
-      <a href="#consult" class="btn-ghost">Get Started</a>
-    </div>
-    <div class="pkg-card reveal">
-      <p class="pkg-zone">Hainan Free Trade Port</p>
-      <h3 class="pkg-name">E-Commerce & Digital Business</h3>
-      <p class="pkg-desc">For e-commerce operators, digital service companies, and tech startups leveraging Hainan's position as China's gateway for cross-border digital trade.</p>
-      <ul class="pkg-services">
-        <li>Company registration</li>
-        <li>Cross-border e-commerce license</li>
-        <li>ICP license assistance</li>
-        <li>Payment gateway setup guidance</li>
-        <li>Platform registration support (JD, Tmall)</li>
-      </ul>
-      <div class="pkg-price">$3,200</div>
-      <div class="pkg-time">⏱ Setup in ~3 weeks</div>
-      <a href="#consult" class="btn-ghost">Get Started</a>
-    </div>
-    <div class="pkg-card reveal reveal-delay-1">
-      <p class="pkg-zone">Boao Lecheng Medical Zone</p>
-      <h3 class="pkg-name">Healthcare & Wellness Entity</h3>
-      <p class="pkg-desc">Purpose-built for medical tourism operators, wellness brands, and healthcare companies. Unique access to global medical resources not available elsewhere in China.</p>
-      <ul class="pkg-services">
-        <li>Healthcare entity registration</li>
-        <li>Medical zone access facilitation</li>
-        <li>License applications (medical/health)</li>
-        <li>Government liaison service</li>
-        <li>Partnership introductions</li>
-        <li>Full year compliance support</li>
-      </ul>
-      <div class="pkg-price">$6,500</div>
-      <div class="pkg-time">⏱ Setup in ~5 weeks</div>
-      <a href="#consult" class="btn-ghost">Get Started</a>
-    </div>
-    <div class="pkg-card reveal reveal-delay-2" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:300px;">
-      <div style="font-size:2rem;margin-bottom:16px">✦</div>
-      <h3 class="pkg-name" style="margin-bottom:12px">Need Something Custom?</h3>
-      <p style="font-size:0.78rem;color:var(--grey);line-height:1.7;margin-bottom:24px">Every business is unique. Let's build a package tailored to your specific industry, structure, and goals.</p>
-      <a href="#consult" class="btn-ghost">Talk to Us</a>
-    </div>
-  </div>
-</section>
-
-<!-- COMPARISON -->
-<section class="comparison-section">
-  <div class="reveal"><p class="section-eyebrow">Compare Packages</p></div>
-  <div class="reveal reveal-delay-1"><h2 class="section-title">What's <em>Included</em></h2></div>
-  <div style="overflow-x:auto;margin-top:50px">
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th>Starter<br>$1,800</th>
-          <th>Professional<br>$4,500</th>
-          <th>Elite<br>$8,800</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Company Registration</td><td class="yes">✦</td><td class="yes">✦</td><td class="yes">✦</td></tr>
-        <tr><td>Registered Address (1yr)</td><td class="yes">✦</td><td class="yes">✦ Premium</td><td class="yes">✦ CBD</td></tr>
-        <tr><td>Company Seals & Chops</td><td class="yes">✦</td><td class="yes">✦</td><td class="yes">✦</td></tr>
-        <tr><td>Bank Account Introduction</td><td class="yes">✦</td><td class="yes">✦</td><td class="yes">✦ Premium</td></tr>
-        <tr><td>Dedicated Account Manager</td><td class="no">—</td><td class="yes">✦</td><td class="yes">✦</td></tr>
-        <tr><td>Accounting & Bookkeeping</td><td class="no">—</td><td class="yes">6 months</td><td class="yes">1 year</td></tr>
-        <tr><td>Work Permit & Visa Support</td><td class="no">—</td><td class="yes">1 person</td><td class="yes">Up to 3</td></tr>
-        <tr><td>Legal Counsel</td><td class="no">—</td><td class="no">—</td><td class="yes">✦ Dedicated</td></tr>
-        <tr><td>Import/Export License</td><td class="no">—</td><td class="no">—</td><td class="yes">✦</td></tr>
-        <tr><td>Trademark Registration</td><td class="no">—</td><td class="no">—</td><td class="yes">✦</td></tr>
-        <tr><td>Strategic Advisory</td><td class="no">—</td><td class="no">—</td><td class="yes">3 sessions</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section class="process-section">
-  <div class="reveal"><p class="section-eyebrow">The Setup Process</p></div>
-  <div class="reveal reveal-delay-1"><h2 class="section-title">From Consultation<br>to <em>Open for Business</em></h2></div>
-  <div class="process-timeline">
-    <div class="timeline-item reveal"><div class="timeline-num">01</div><div class="timeline-content"><h4>Free Initial Consultation</h4><p>We discuss your business goals, industry, and ideal structure. We recommend the right package and answer all your questions — no commitment required.</p></div></div>
-    <div class="timeline-item reveal"><div class="timeline-num">02</div><div class="timeline-content"><h4>Document Preparation</h4><p>We provide a clear checklist of documents needed (passport, address proof, etc.) and assist with preparation. Most clients complete this in 2–3 days.</p></div></div>
-    <div class="timeline-item reveal"><div class="timeline-num">03</div><div class="timeline-content"><h4>Name Reservation & Government Filing</h4><p>We submit all documents to the Hainan government authorities and handle all Chinese-language communications on your behalf.</p></div></div>
-    <div class="timeline-item reveal"><div class="timeline-num">04</div><div class="timeline-content"><h4>License Issuance & Seal Production</h4><p>Your business license, company seals, and all legal documents are produced and delivered to you digitally and physically.</p></div></div>
-    <div class="timeline-item reveal"><div class="timeline-num">05</div><div class="timeline-content"><h4>Banking & Tax Registration</h4><p>We introduce you to our banking partners and handle tax registration so you're ready to conduct business immediately.</p></div></div>
-    <div class="timeline-item reveal"><div class="timeline-num">06</div><div class="timeline-content"><h4>Ongoing Support</h4><p>Annual compliance filing, accounting, visa renewals — we remain your China operations partner for the long term.</p></div></div>
-  </div>
-</section>
-
-<!-- CONSULT FORM -->
-<section class="consult-section" id="consult">
-  <div class="reveal"><p class="section-eyebrow">Free Consultation</p></div>
-  <div class="reveal reveal-delay-1"><h2 class="section-title">Start Your Hainan<br><em>Journey Today</em></h2></div>
-  <div class="form-grid">
-    <div>
-      <div style="border:1px solid var(--glass-border);padding:36px;background:var(--card-bg);backdrop-filter:blur(10px);">
-        <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--text);margin-bottom:20px">Why Act Now?</h4>
-        <div style="display:flex;flex-direction:column;gap:22px">
-          <div style="display:flex;gap:16px"><span style="color:var(--gold);font-size:1.2rem;flex-shrink:0">✦</span><div><div style="font-size:0.82rem;color:var(--text);margin-bottom:4px">Hainan FTP Policy Window</div><div style="font-size:0.74rem;color:var(--grey);line-height:1.6">The most favorable preferential policies are available now. Early movers gain the most advantages as the Free Trade Port develops.</div></div></div>
-          <div style="display:flex;gap:16px"><span style="color:var(--gold);font-size:1.2rem;flex-shrink:0">✦</span><div><div style="font-size:0.82rem;color:var(--text);margin-bottom:4px">Full China Market Access</div><div style="font-size:0.74rem;color:var(--grey);line-height:1.6">A Hainan company gives you direct access to 1.4 billion consumers and China's vast B2B market.</div></div></div>
-          <div style="display:flex;gap:16px"><span style="color:var(--gold);font-size:1.2rem;flex-shrink:0">✦</span><div><div style="font-size:0.82rem;color:var(--text);margin-bottom:4px">Open to All Nationalities</div><div style="font-size:0.74font-size:0.74rem;color:var(--grey);line-height:1.6">Foreign nationals can own 100% of their Hainan company — no local partner required.</div></div></div>
-          <div style="display:flex;gap:16px"><span style="color:var(--gold);font-size:1.2rem;flex-shrink:0">✦</span><div><div style="font-size:0.82rem;color:var(--text);margin-bottom:4px">Free Consultation, No Obligation</div><div style="font-size:0.74rem;color:var(--grey);line-height:1.6">We answer all your questions before you spend a single dollar. Book your free call today.</div></div></div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div id="consultSuccess" class="form-success">Consultation request received! We'll contact you within 24 hours to schedule your free call. ✦</div>
-      <div class="form-row">
-        <div class="form-group"><label>Full Name</label><input type="text" id="cName" placeholder="Your name"></div>
-        <div class="form-group"><label>Email</label><input type="email" id="cEmail" placeholder="your@email.com"></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" id="cPhone" placeholder="+1 234 567 8900"></div>
-        <div class="form-group"><label>Nationality</label><input type="text" id="cNationality" placeholder="Your nationality"></div>
-      </div>
-      <div class="form-group"><label>Package of Interest</label>
-        <select id="cPackage">
-          <option value="">Select a package</option>
-          <option value="6a281154649d5cee0b8614af">Starter FTZ Company — $1,800</option>
-          <option value="6a281154649d5cee0b8614b0">Professional Business Package — $4,500</option>
-          <option value="6a281154649d5cee0b8614b1">Elite Investment & Trading — $8,800</option>
-          <option value="6a281154649d5cee0b8614b2">E-Commerce & Digital Business — $3,200</option>
-          <option value="6a281154649d5cee0b8614b3">Healthcare & Wellness Entity — $6,500</option>
-          <option value="custom">Custom Package</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label>Industry / Business Type</label><input type="text" id="cIndustry" placeholder="e.g. Trading, Tech, Healthcare"></div>
-        <div class="form-group"><label>Budget Range</label>
-          <select id="cBudget">
-            <option value="">Select range</option>
-            <option>Under $2,000</option><option>$2,000 – $5,000</option>
-            <option>$5,000 – $9,000</option><option>$9,000+</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group"><label>Preferred Call Time</label><input type="text" id="cCallTime" placeholder="e.g. Weekdays 10am–2pm GMT+8"></div>
-      <div class="form-group"><label>Your Questions</label><textarea id="cQuestions" rows="4" placeholder="Tell us about your business goals and any specific questions you have…"></textarea></div>
-      <p style="font-size:0.8rem;color:#6b6e92;margin-bottom:20px;">Or email us directly: <a href="mailto:contact@bwcshop.online" style="color:var(--gold);font-weight:500;">contact@bwcshop.online</a></p>
-      <button class="btn-full" onclick="submitConsult()">Book Free Consultation →</button>
-    </div>
-  </div>
-</section>
-
-<footer><p>© 2026 <a href="index.html">BridgewayChina</a> · All rights reserved</p></footer>
-
 <script>
-const navbar=document.getElementById('navbar');
-window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
-const obs=new IntersectionObserver(e=>e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible');}),{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_KEY';
 
-async function submitConsult(){
-  const name=document.getElementById('cName').value;
-  const email=document.getElementById('cEmail').value;
-  if(!name||!email){alert('Please fill in your name and email.');return;}
-  const pkg=document.getElementById('cPackage');
-  try{
-    const fd4=new FormData();
-      fd4.append('form-name','hainan-consult');
-      for(const[k,v] of Object.entries(payload)) fd4.append(k,v);
-      await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd4).toString()});
-  }catch(e){}
-  document.getElementById('consultSuccess').style.display='block';
-  window.scrollTo({top:document.getElementById('consult').offsetTop-100,behavior:'smooth'});
-}
-</script>
-
-<!-- CUSTOM QUOTE SECTION -->
-<section style="padding:100px 60px;background:var(--bg);border-top:1px solid var(--glass-border)" id="custom-quote">
-  <div style="max-width:800px;margin:0 auto">
-    <p style="font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Tailored For You</p>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--text);margin-bottom:12px">Get a <em style="font-style:italic;color:var(--gold)">Customised Quote</em></h2>
-    <div style="width:60px;height:1px;background:var(--gold);margin:20px 0;"></div>
-    <p style="color:var(--text-light);font-size:0.88rem;line-height:1.9;margin-bottom:40px;max-width:580px">Every business is different. Tell us your specific requirements — industry, structure, timeline, and budget — and we'll send you a personalised company setup plan with exact pricing within 24 hours.</p>
-    <div style="background:var(--card-bg);border:1px solid var(--glass-border);padding:40px;box-shadow:0 4px 30px rgba(201,168,76,0.1)">
-      <div id="quoteSuccess" style="display:none;background:rgba(201,168,76,0.1);border:1px solid var(--gold);color:var(--gold);padding:14px 20px;font-size:0.8rem;margin-bottom:20px;text-align:center">Thank you — your custom quote request has been received. We'll respond within 24 hours. ✦</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
-        <div style="display:flex;flex-direction:column;gap:7px">
-          <label style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-light)">Full Name</label>
-          <input type="text" id="qName" placeholder="Your name" style="background:#fff;border:1px solid var(--glass-border);color:var(--text);padding:12px 14px;font-family:'Inter',sans-serif;font-size:0.82rem;outline:none;transition:border-color 0.3s" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--glass-border)'">
-        </div>
-        <div style="display:flex;flex-direction:column;gap:7px">
-          <label style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-light)">Email</label>
-          <input type="email" id="qEmail" placeholder="your@email.com" style="background:#fff;border:1px solid var(--glass-border);color:var(--text);padding:12px 14px;font-family:'Inter',sans-serif;font-size:0.82rem;outline:none;transition:border-color 0.3s" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--glass-border)'">
-        </div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
-        <div style="display:flex;flex-direction:column;gap:7px">
-          <label style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-light)">Industry / Business Type</label>
-          <input type="text" id="qIndustry" placeholder="e.g. Trading, Tech, Consulting" style="background:#fff;border:1px solid var(--glass-border);color:var(--text);padding:12px 14px;font-family:'Inter',sans-serif;font-size:0.82rem;outline:none;transition:border-color 0.3s" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--glass-border)'">
-        </div>
-        <div style="display:flex;flex-direction:column;gap:7px">
-          <label style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-light)">Budget Range</label>
-          <select id="qBudget" style="background:#fff;border:1px solid var(--glass-border);color:var(--text);padding:12px 14px;font-family:'Inter',sans-serif;font-size:0.82rem;outline:none;transition:border-color 0.3s" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--glass-border)'">
-            <option value="">Select budget range</option>
-            <option>Under $2,000</option>
-            <option>$2,000 – $5,000</option>
-            <option>$5,000 – $10,000</option>
-            <option>$10,000+</option>
-          </select>
-        </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:20px">
-        <label style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-light)">Additional Details & Requirements</label>
-        <textarea id="qDetails" rows="4" placeholder="Tell us about your business goals, timeline, and any specific requirements..." style="background:#fff;border:1px solid var(--glass-border);color:var(--text);padding:12px 14px;font-family:'Inter',sans-serif;font-size:0.82rem;outline:none;resize:none;transition:border-color 0.3s" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--glass-border)'"></textarea>
-      </div>
-      <button onclick="submitQuote()" style="width:100%;padding:14px;background:var(--gold);color:#1a1209;border:none;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.3s" onmouseover="this.style.background='#e0a820'" onmouseout="this.style.background='var(--gold)'">Request My Custom Quote →</button>
-    </div>
-  </div>
-</section>
-
-<script>
-async function submitQuote() {
-  const name = document.getElementById('qName').value;
-  const email = document.getElementById('qEmail').value;
-  const industry = document.getElementById('qIndustry').value;
-  const budget = document.getElementById('qBudget').value;
-  const details = document.getElementById('qDetails').value;
-  if(!name || !email) { alert('Please enter your name and email.'); return; }
+async function w3submit(data, successEl) {
   try {
-    const fd4=new FormData();
-      fd4.append('form-name','hainan-consult');
-      for(const[k,v] of Object.entries(payload)) fd4.append(k,v);
-      await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd4).toString()});
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({access_key: WEB3FORMS_KEY, ...data})
+    });
+    const json = await res.json();
+    if (json.success) { successEl.style.display = 'block'; return true; }
   } catch(e) {}
-  document.getElementById('quoteSuccess').style.display = 'block';
+  alert('There was an error. Please email us at contact@bwcshop.online');
+  return false;
 }
-</script>
 
-<form name="hainan-consult" netlify netlify-honeypot="bot-field" hidden>
-  <input name="client_name"/><input name="client_email"/><input name="client_phone"/>
-  <input name="business_type"/><input name="budget_range"/><textarea name="questions"></textarea>
-</form>
+async function submitConsult() {
+  const name = document.getElementById('cName').value.trim();
+  const email = document.getElementById('cEmail').value.trim();
+  const nationality = document.getElementById('cNationality').value.trim();
+  const entity = document.getElementById('cEntity').value;
+  const location = document.getElementById('cLocation').value;
+  const industry = document.getElementById('cIndustry').value.trim();
+  const desc = document.getElementById('cDesc').value.trim();
+  if (!name || !email) { alert('Please enter your name and email.'); return; }
+  const btn = document.querySelector('.form-submit');
+  btn.textContent = 'Sending…'; btn.disabled = true;
+  const ok = await w3submit({
+    subject: 'Company Setup Consultation — BWC',
+    from_name: name,
+    email,
+    message: `Name: ${name}\nEmail: ${email}\nNationality: ${nationality}\nPreferred Entity: ${entity}\nPreferred Location: ${location}\nIndustry: ${industry}\n\nBusiness Description:\n${desc}`
+  }, document.getElementById('cSuccess'));
+  if (!ok) { btn.textContent = 'Request Consultation →'; btn.disabled = false; }
+}
+
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, {threshold: 0.1});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

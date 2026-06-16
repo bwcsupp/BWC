@@ -935,28 +935,24 @@ function loadAdminData(){
   document.getElementById('lastUp').textContent=new Date().toLocaleTimeString();
   loadForm('contact','tb-c',['name','email','service','message']);
 }
+const WEB3FORMS_KEY='YOUR_WEB3FORMS_KEY';
 async function doContact(){
-  const n=document.getElementById('cN').value,e=document.getElementById('cE').value,p=document.getElementById('cP').value,s=document.getElementById('cS').value,m=document.getElementById('cM').value;
+  const n=document.getElementById('cN').value.trim(),e=document.getElementById('cE').value.trim(),p=document.getElementById('cP').value.trim(),s=document.getElementById('cS').value,m=document.getElementById('cM').value.trim();
   if(!n||!e||!m){alert('Please fill in name, email and message.');return;}
+  const btn=document.querySelector('.bsub');btn.textContent='Sending…';btn.disabled=true;
   try{
-    const fd=new FormData();
-    fd.append('form-name','contact');
-    fd.append('name',n);fd.append('email',e);fd.append('phone',p);fd.append('service',s);fd.append('message',m);
-    await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()});
+    const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:WEB3FORMS_KEY,subject:'New Enquiry — BWC',from_name:n,email:e,message:`Name: ${n}\nEmail: ${e}\nPhone: ${p}\nService: ${s}\n\nMessage:\n${m}`})});
+    const json=await res.json();
+    if(json.success){document.getElementById('fsuc').style.display='block';['cN','cE','cP','cS','cM'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});return;}
   }catch(err){}
-  document.getElementById('fsuc').style.display='block';
-  ['cN','cE','cP','cS','cM'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  alert('There was an error. Please email us at contact@bwcshop.online');
+  btn.textContent='Send Message →';btn.disabled=false;
 }
 
 </script>
 
 
 
-<!-- Netlify Forms hidden trigger -->
-<form name="contact" netlify netlify-honeypot="bot-field" hidden>
-  <input name="name"/><input name="email"/><input name="phone"/>
-  <input name="service"/><textarea name="message"></textarea>
-</form>
 
 <!-- ADMIN PANEL -->
 <div id="adm" style="display:none;position:fixed;inset:0;z-index:5000;background:var(--bg);overflow-y:auto;">
