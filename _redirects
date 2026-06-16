@@ -1,3 +1,5 @@
-/wellness    /wellness.html    200
-/sourcing    /sourcing.html    200
-/hainan      /hainan.html      200
+/wellness    /wellness.html    301
+/sourcing    /sourcing.html    301
+/hainan      /hainan.html      301
+/shop        /shop.html        301
+/*           /index.html       200
